@@ -1,0 +1,805 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Logo */
+.logo a {
+    color: #ffcc00;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    color: #ffcc00;
+    font-size: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.cart:hover {
+    color: #fff;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #ffcc00;
+    color: #1a1a1a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.login-btn:hover {
+    background-color: #e6b800;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('./DALL·E\ 2025-03-08\ 19.22.38\ -\ An\ elegant\ and\ stylish\ liquor-themed\ background\ for\ an\ e-commerce\ website\ named\ \'Sip\ Society\'.\ The\ background\ features\ a\ premium\ bar\ setup\ with\ variou.webp') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    max-width: 600px;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffcc00;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 10px 0 20px;
+    opacity: 0.9;
+}
+
+/* Call-to-Action Button */
+.cta-btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #121212;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        padding: 10px 20px;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Featured Products Section */
+.featured-products {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.featured-products h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 30px;
+}
+
+/* Products Grid */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Product Card */
+.product-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.2);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0 10px;
+    color: #ffcc00;
+}
+
+.product-card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #121212;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.add-to-cart:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .products-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .featured-products h2 {
+        font-size: 2rem;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Categories Section */
+.categories {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.categories h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 30px;
+}
+
+/* Categories Grid */
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Category Card */
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.category-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Dark Overlay & Text */
+.category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffcc00;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.category-card:hover {
+    transform: scale(1.05);
+}
+
+.category-card:hover img {
+    filter: brightness(0.6);
+}
+
+.category-card:hover .category-overlay {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .categories-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .categories h2 {
+        font-size: 2rem;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Deals & Offers Section */
+.deals {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.deals h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 30px;
+}
+
+/* Deals Container */
+.deals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Deal Card */
+.deal-card {
+    position: relative;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.deal-card:hover {
+    transform: scale(1.05);
+}
+
+.deal-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Deal Info */
+.deal-info {
+    padding: 15px 0;
+}
+
+.deal-info h3 {
+    font-size: 1.5rem;
+    color: #ffcc00;
+}
+
+.deal-info p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Countdown Timer */
+.countdown {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin: 10px 0;
+    padding: 5px;
+    background: rgba(255, 204, 0, 0.2);
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Deal Button */
+.deal-btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #121212;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.deal-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .deals-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .deals h2 {
+        font-size: 2rem;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Reviews Section */
+.reviews {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.reviews h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 30px;
+}
+
+/* Review Container */
+.review-container {
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+}
+
+.review-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.2);
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.review-card.active {
+    display: block;
+    opacity: 1;
+}
+
+.review-card p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.review-card h3 {
+    font-size: 1.5rem;
+    color: #ffcc00;
+}
+
+.stars {
+    font-size: 1.5rem;
+    color: #ffcc00;
+}
+
+/* Dots Navigation */
+.dots {
+    margin-top: 20px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #555;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background-color: #ffcc00;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .reviews h2 {
+        font-size: 2rem;
+    }
+
+    .review-card p {
+        font-size: 1rem;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Newsletter Section */
+.newsletter {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.2);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.newsletter h2 {
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #bbb;
+}
+
+/* Newsletter Form */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-form input {
+    width: 80%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.newsletter-form input::placeholder {
+    color: #aaa;
+}
+
+/* Subscribe Button */
+.newsletter-form button {
+    background-color: #ffcc00;
+    color: #121212;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #e6b800;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .newsletter {
+        padding: 40px 15px;
+    }
+
+    .newsletter h2 {
+        font-size: 1.8rem;
+    }
+
+    .newsletter p {
+        font-size: 1rem;
+    }
+
+    .newsletter-form input {
+        width: 90%;
+    }
+}
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #1a1a1a;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 -4px 10px rgba(255, 204, 0, 0.2);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+/* Footer About */
+.footer-about {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-about h2 {
+    color: #ffcc00;
+}
+
+.footer-about p {
+    color: #bbb;
+}
+
+/* Footer Links */
+.footer-links {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-links h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Footer Social Media */
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-social h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: #bbb;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffcc00;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-about, .footer-links, .footer-social {
+        margin-bottom: 20px;
+    }
+}
+.newsletter {
+    margin-bottom: 50px; /* Adds gap below the newsletter section */
+}
+
+.footer {
+    margin-top: 50px; /* Adds gap above the footer section */
+}
