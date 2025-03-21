@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing & Shipping Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2, h3 {
+            color: #ffcc00;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+        button {
+            background: #ffcc00;
+            color: #121212;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #e6b800;
+        }
+        .hidden {
+            display: none;
+            color: #ffcc00;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Billing & Shipping Details</h2>
+        <form id="checkout-form">
+            <h3>Billing Details</h3>
+            <label for="billing-name">Full Name:</label>
+            <input type="text" id="billing-name" required>
+
+            <label for="billing-email">Email:</label>
+            <input type="email" id="billing-email" required>
+
+            <label for="billing-phone">Phone Number:</label>
+            <input type="tel" id="billing-phone" required>
+
+            <label for="billing-address">Address:</label>
+            <textarea id="billing-address" required></textarea>
+
+            <h3>Shipping Details</h3>
+            <label>
+                <input type="checkbox" id="same-address"> Same as Billing Address
+            </label>
+            
+            <label for="shipping-name">Full Name:</label>
+            <input type="text" id="shipping-name" required>
+
+            <label for="shipping-address">Address:</label>
+<textarea id="shipping-address" required></textarea>
+<a href="https://example.com/Delhivery-Time.html">
+    <button type="submit">Proceed to Payment</button>
+</a>
+</form>
+<p id="success-message" class="hidden">✔ Order successfully placed!</p>
+
+    <script>
+        document.getElementById("same-address").addEventListener("change", function() {
+            if (this.checked) {
+                document.getElementById("shipping-name").value = document.getElementById("billing-name").value;
+                document.getElementById("shipping-address").value = document.getElementById("billing-address").value;
+            } else {
+                document.getElementById("shipping-name").value = "";
+                document.getElementById("shipping-address").value = "";
+            }
+        });
+
+        document.getElementById("checkout-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("success-message").classList.remove("hidden");
+            setTimeout(() => {
+                document.getElementById("success-message").classList.add("hidden");
+            }, 3000);
+        });
+    </script>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Payment Methods</title>
+        <style>
+            body {
+                background-color: #121212;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .container {
+                background: #1e1e1e;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.2);
+                max-width: 400px;
+                width: 100%;
+                text-align: center;
+            }
+            h2 {
+                color: #ffcc00;
+            }
+            .payment-option {
+                display: flex;
+                align-items: center;
+                background: #222;
+                padding: 10px;
+                border-radius: 5px;
+                margin: 10px 0;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+            .payment-option:hover {
+                background: #333;
+            }
+            input[type="radio"] {
+                margin-right: 10px;
+            }
+            button {
+                background: #ffcc00;
+                color: #121212;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            button:hover {
+                background: #e6b800;
+            }
+            .hidden {
+                display: none;
+                color: #ffcc00;
+                text-align: center;
+                margin-top: 10px;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("payment-form").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    let selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+                    if (selectedPayment) {
+                        document.getElementById("confirmation-message").textContent = `✔ Payment method selected: ${selectedPayment.value}`;
+                        document.getElementById("confirmation-message").classList.remove("hidden");
+                    } else {
+                        alert("⚠️ Please select a payment method.");
+                    }
+                });
+            });
+        </script>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation & Tracking</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            color: #ffcc00;
+        }
+        .order-details {
+            background: #222;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .tracking-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #ffcc00;
+            color: #121212;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #e6b800;
+        }
+        .hidden {
+            display: none;
+            color: #ffcc00;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("track-button").addEventListener("click", function() {
+                let trackingNumber = document.getElementById("tracking-number").value.trim();
+                if (trackingNumber) {
+                    document.getElementById("tracking-message").textContent = `✔ Tracking Order: ${trackingNumber}. Estimated delivery in 2-3 days.`;
+                    document.getElementById("tracking-message").classList.remove("hidden");
+                } else {
+                    alert("⚠️ Please enter a valid tracking number.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+   
+       
+</body>
+</html>
+
+    </body>
+    </html>
+</body>
+</html>
