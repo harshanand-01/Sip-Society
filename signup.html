@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup - SIP SOCIETY</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container" id="authContainer">
+        <h2 id="formTitle">Login</h2>
+        <form id="authForm">
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group" id="confirmPasswordGroup" style="display: none;">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            </div>
+            <button type="submit" id="authButton">Login</button>
+        </form>
+        <span class="toggle-link" onclick="toggleForm()">Don't have an account? Sign up</span>
+    </div>
+
+    <style>
+        /* Dark Theme Styles for SIP SOCIETY */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #252525;
+            color: #ffffff;
+            transition: border 0.3s, background-color 0.3s;
+        }
+
+        input:hover {
+            border-color: #ff9800;
+            background-color: #303030;
+        }
+
+        input::placeholder {
+            color: #bbbbbb;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
+
+        .toggle-link {
+            display: block;
+            margin-top: 10px;
+            color: #ff9800;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .toggle-link:hover {
+            color: #e68900;
+        }
+    </style>
+
+    <script>
+        let isLogin = true;
+
+        function toggleForm() {
+            isLogin = !isLogin;
+            document.getElementById("formTitle").textContent = isLogin ? "Login" : "Sign Up";
+            document.getElementById("authButton").textContent = isLogin ? "Login" : "Sign Up";
+            document.getElementById("confirmPasswordGroup").style.display = isLogin ? "none" : "block";
+            document.querySelector(".toggle-link").textContent = isLogin ? "Don't have an account? Sign up" : "Already have an account? Login";
+        }
+
+        document.getElementById("authForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword")?.value.trim();
+
+            if (!isLogin && password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            let endpoint = isLogin ? "/login" : "/register";
+            let data = { email, password };
+
+            try {
+                let response = await fetch(``, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+
+                let result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    if (isLogin) {
+                        localStorage.setItem("userEmail", email);
+                        window.location.href = "account.html";
+                    }
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                alert("Network or Server Error. Please try again later.");
+            }
+        });
+        const cors = require("cors");
+app.use(cors());
+
+    </script>
+</body>
+</html>
