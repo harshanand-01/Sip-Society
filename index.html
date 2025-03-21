@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP SOCIETY - Liquor Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script> 
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP SOCIETY</title>
+    <style>
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Adds space between the logo image and text */
+        }
+
+        .round-image {
+            height: 90px;
+            width: 90px;
+            border-radius: 50%; /* Ensures a perfect circular image */
+            object-fit: cover; /* Ensures the image scales properly */
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            color: #000; /* Set text color */
+            font-weight: bold;
+        }
+
+        .logo a:hover {
+            color: #007BFF; /* Adds hover effect for the link */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="./SIP SOCIETY LOGO.jpg" alt="SIP Society Logo" class="round-image">
+        <a href="#">SIP SOCIETY</a>
+    </div>
+
+    
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./shop.html" target="_blank">Shop</a></li>
+                <li><a href="./About.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./cart.html" target="_blank">🛒Cart</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" class="cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="./signup.html" class="login-btn">Login / Sign Up</a>
+        </div>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP SOCIETY - Hero Section</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Uncork & Unwind</h1>
+            <p>Premium Liquor Delivered To Your Doorstep</p>
+            <a href="#featured-products" class="cta-btn">Shop Now</a>
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP SOCIETY - Featured Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Featured Products Section -->
+     <section id="featured-products">
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="products-container">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://www.jamesonwhiskey.com/wp-content/uploads/2022/01/blackbarrel_hero_5.jpg" alt="Whiskey">
+                <h3>Premium Whiskey</h3>
+                <p>₹499</p>
+                <a href="#" class="add-to-cart">Add to Cart</a>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://i.pinimg.com/originals/1d/81/27/1d8127ca6f05cb0d89f25292419b10c8.jpg" alt="Wine">
+                <h3>Classic Red Wine</h3>
+                <p>₹799</p>
+                <a href="#" class="add-to-cart">Add to Cart</a>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Crystal_Head_Vodka.jpg/220px-Crystal_Head_Vodka.jpg" alt="Vodka">
+                <h3>Crystal Vodka</h3>
+                <p>₹599</p>
+                <a href="#" class="add-to-cart">Add to Cart</a>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.bw74DrU09H8_Unj9lGCl_QHaHa?rs=1&pid=ImgDetMain" alt="Beer">
+                <h3>Craft Beer Pack</h3>
+                <p>₹199</p>
+                <a href="#" class="add-to-cart">Add to Cart</a>
+            </div>
+
+        </div>
+    </section>
+    </section>
+
+    <script>
+        // Function to add an item to the cart
+function addToCart(product) {
+    // Get existing cart data from localStorage or create a new array if none exists
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the item already exists in the cart
+    const existingItemIndex = cart.findIndex((item) => item.name === product.name);
+    if (existingItemIndex !== -1) {
+        // If item exists, increment its quantity
+        cart[existingItemIndex].quantity += 1;
+    } else {
+        // If item doesn't exist, add it to the cart
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(`${product.name} has been added to your cart!`);
+}
+
+// Add event listeners to "Add to Cart" buttons
+document.querySelectorAll(".add-to-cart").forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default button behavior
+
+        const productCard = button.closest(".product-card");
+        const productName = productCard.querySelector("h3").textContent;
+        const productPrice = parseInt(productCard.querySelector("p").textContent.replace("₹", ""));
+        const productImage = productCard.querySelector("img").src;
+
+        // Create a product object
+        const product = {
+            name: productName,
+            price: productPrice,
+            image: productImage,
+        };
+
+        // Add the product to the cart
+        addToCart(product);
+    });
+});
+
+    </script>
+    
+    <script>
+        // Initialize cart as an empty array
+let cart = [];
+
+// Function to add item to the cart
+function addToCart(productName, productPrice) {
+    // Add product to the cart array
+    cart.push({ name: productName, price: productPrice });
+
+    // Update the cart UI
+    updateCartUI();
+}
+
+// Function to update the cart UI
+function updateCartUI() {
+    const cartItemsContainer = document.getElementById("cartItems");
+    const cartTotalElement = document.getElementById("cartTotal");
+
+    // Clear current cart UI
+    cartItemsContainer.innerHTML = "";
+
+    // Add each item in the cart to the UI
+    let total = 0;
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.name} - ₹${item.price}`;
+
+        // Add a remove button for each item
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.onclick = () => {
+            removeFromCart(index);
+        };
+
+        listItem.appendChild(removeButton);
+        cartItemsContainer.appendChild(listItem);
+    });
+
+    // Update the total
+    cartTotalElement.textContent = `Total: ₹${total}`;
+}
+
+// Function to remove item from the cart
+function removeFromCart(index) {
+    // Remove the item from the cart array
+    cart.splice(index, 1);
+
+    // Update the cart UI
+    updateCartUI();
+}
+
+// Add event listeners to "Add to Cart" buttons
+document.querySelectorAll(".add-to-cart").forEach((button, index) => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // Fetch product details
+        const productCard = button.closest(".product-card");
+        const productName = productCard.querySelector("h3").textContent;
+        const productPrice = parseInt(
+            productCard.querySelector("p").textContent.replace("₹", "")
+        );
+
+        // Add product to cart
+        addToCart(productName, productPrice);
+    });
+});
+
+    </script>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP SOCIETY - Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Explore Our Categories</h2>
+        <div class="categories-container">
+
+            <!-- Category 1: Whiskey -->
+            <div class="category-card">
+                <img src="https://drinkstack.com/wp-content/uploads/2022/07/how-many-ounces-are-in-a-fifth-of-whiskey.jpg" alt="Whiskey">
+                <div class="category-overlay">
+                    <h3>Whiskey</h3>
+                </div>
+            </div>
+
+            <!-- Category 2: Wine -->
+            <div class="category-card">
+                <img src="https://drinkstack.com/wp-content/uploads/2022/07/wines-of-pomerol-france.jpg" alt="Wine">
+                <div class="category-overlay">
+                    <h3>Wine</h3>
+                </div>
+            </div>
+
+            <!-- Category 3: Vodka -->
+            <div class="category-card">
+                <img src="https://www.mashed.com/img/gallery/popular-vodka-brands-ranked-from-worst-to-best/smirnoff-1620051403.jpg" alt="Vodka">
+                <div class="category-overlay">
+                    <h3>Vodka</h3>
+                </div>
+            </div>
+
+            <!-- Category 4: Beer -->
+            <div class="category-card">
+                <img src="https://wallup.net/wp-content/uploads/2017/11/23/417506-beer-drink.jpg" alt="Beer">
+                <div class="category-overlay">
+                    <h3>Beer</h3>
+                </div>
+            </div>
+
+            <!-- Category 5: Tequila -->
+            <div class="category-card">
+                <img src="https://wallpaperaccess.com/full/1463946.jpg" alt="Tequila">
+                <div class="category-overlay">
+                    <h3>Tequila</h3>
+                </div>
+            </div>
+
+            <!-- Category 6: Desi -->
+            <div class="category-card">
+                <img src="https://lhmagazine.co.uk/wp-content/uploads/2023/04/Desi-Daru-Original-Mango-with-cocktails-scaled.jpg" alt="Tequila">
+                <div class="category-overlay">
+                    <h3>Desi</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SIP SOCIETY - Deals & Offers</title>
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+    
+        <!-- Deals & Offers Section -->
+        <section class="deals">
+            <h2>Exclusive Deals & Offers</h2>
+            <div class="deals-container">
+    
+                <!-- Deal 1 -->
+                <div class="deal-card">
+                    <img src="https://cdn-s3.touchofmodern.com/products/002/557/588/bceed9f6f129b06604ddeb87da1b7ad2_large.jpg?1670354362" alt="Whiskey Deal">
+                    <div class="deal-info">
+                        <h3>Whiskey Bundle</h3>
+                        <p>Get 30% Off</p>
+                        <div class="countdown" data-time="2025-03-25T23:59:59"></div>
+                        <a href="#" class="deal-btn">Grab Now</a>
+                    </div>
+                </div>
+    
+                <!-- Deal 2 -->
+                <div class="deal-card">
+                    <img src="https://netstorage-briefly.akamaized.net/images/365cc97ec8c7b442.jpg?imwidth=900" alt="Wine Deal">
+                    <div class="deal-info">
+                        <h3>Premium Wine Pack</h3>
+                        <p>Buy 2, Get 1 Free</p>
+                        <div class="countdown" data-time="2025-03-28T23:59:59"></div>
+                        <a href="#" class="deal-btn">Shop Now</a>
+                    </div>
+                </div>
+    
+                <!-- Deal 3 -->
+                <div class="deal-card">
+                    <img src="https://bevvyco.s3.amazonaws.com/img/drinks/dy/tody/21b31022be58a60e611b330d3fdece47-lg.jpg" alt="Vodka Deal">
+                    <div class="deal-info">
+                        <h3>Vodka Special</h3>
+                        <p>Flat 25% Off</p>
+                        <div class="countdown" data-time="2025-04-01T23:59:59"></div>
+                        <a href="#" class="deal-btn">Claim Deal</a>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SIP SOCIETY - Customer Reviews</title>
+            <link rel="stylesheet" href="style.css">
+            <script defer src="script.js"></script>
+        </head>
+        <body>
+        
+            <!-- Customer Reviews Section -->
+            <section class="reviews">
+                <h2>What Our Customers Say</h2>
+                <div class="review-container">
+        
+                    <div class="review-card active">
+                        <p>"Absolutely love the quality of liquor and fast delivery! Highly recommended!"</p>
+                        <h3>John Doe</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+        
+                    <div class="review-card">
+                        <p>"Great selection of premium drinks at amazing prices. Will order again!"</p>
+                        <h3>Emily Smith</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+        
+                    <div class="review-card">
+                        <p>"Smooth ordering process and excellent customer service. 10/10!"</p>
+                        <h3>Michael Brown</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+        
+                </div>
+        
+                <!-- Navigation Dots -->
+                <div class="dots">
+                    <span class="dot active" onclick="changeReview(0)"></span>
+                    <span class="dot" onclick="changeReview(1)"></span>
+                    <span class="dot" onclick="changeReview(2)"></span>
+                </div>
+        
+            </section>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>SIP SOCIETY - Newsletter Signup</title>
+                <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+            
+                <!-- Newsletter Section -->
+                <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Get the latest updates, exclusive offers, and new arrivals directly to your inbox!</p>
+    <form action="#" method="POST" class="newsletter-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+                    <!-- Footer Section -->
+                    <footer class="footer">
+                        <div class="footer-container">
+                            
+                            <!-- Footer Logo & About -->
+                            <div class="footer-about">
+                                <h2>SIP SOCIETY</h2>
+                                <p>Your premium liquor delivery service. Drink responsibly!</p>
+                            </div>
+                
+                            <!-- Quick Links -->
+                            <div class="footer-links">
+                                <h3>Quick Links</h3>
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="./shop.html">Shop</a></li>
+                                    <li><a href="./About.html">About Us</a></li>
+                                    <li><a href="./contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                
+                            <!-- Social Media -->
+                            <div class="footer-social">
+                                <h3>Follow Us</h3>
+                                <div class="social-icons">
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                
+                        </div>
+                
+                        <!-- Copyright -->
+                        <div class="footer-bottom">
+                            <p>&copy; SIP SOCIETY. All rights reserved.</p>
+                        </div>
+                
+                    </footer>
+                    
+                
+                </body>
+                </html>
+                
+            </body>
+            </html>
+</body>
+</html>
